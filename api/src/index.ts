@@ -70,9 +70,6 @@ app.use(
   })
 );
 app.use(express.static("./public"));
-app.get("/", (req, res) => {
-  res.send("Hello from API of Blog App!");
-});
 app.get("/*", handlers.getApp);
 app.use(handlers.handleError);
 await new Promise<void>((resolve) => httpServer.listen({ port }, resolve));
