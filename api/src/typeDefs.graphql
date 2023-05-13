@@ -1,0 +1,102 @@
+scalar DateTime
+scalar Upload
+"""
+User object
+"""
+type User {
+  id: ID!
+  """
+  The user's unique username
+  """
+  username: String!
+  """
+  All of the comments wrote by this user
+  """
+  posts: [Post!]
+}
+"""
+Post object
+"""
+type Post {
+  id: ID!
+  """
+  Post title
+  """
+  title: String!
+  """
+  Text content of the post
+  """
+  content: String!
+  """
+  Link for media data
+  """
+  media: String
+  """
+  Author of the post
+  """
+  author: User!
+  """
+  Date of the creation
+  """
+  createdAt: DateTime!
+  """
+  Date of the updating
+  """
+  updatedAt: DateTime!
+}
+"""
+Post's information for pagination
+"""
+type PostFeed {
+  """
+  Post's data array
+  """
+  posts: [Post!]!
+  """
+  Total count of all posts
+  """
+  totalPosts: Int!
+}
+
+type Query {
+  """
+  Get post by id
+  """
+  getPost(id: ID!): Post
+  """
+  Get feed of posts data
+  """
+  getPosts(cursor: Int): PostFeed!
+  """
+  Get current authorized user information
+  """
+  getMe: User
+  """
+  Get information about some user
+  """
+  getUser(username: String!): User
+}
+
+type Mutation {
+  """
+  Registration event
+  """
+  signUp(username: String!, password: String!): String!
+  """
+  Authorization event
+  """
+  signIn(username: String!, password: String!): String!
+
+  """
+  Publish new post
+  """
+  newPost(title: String!, content: String!, file: Upload): Post!
+  """
+  Delete one post
+  """
+  deletePost(id: ID!): Boolean!
+  """
+  Update published post by user
+  """
+  updatePost(id: ID!, title: String, content: String, file: Upload): Post!
+}
