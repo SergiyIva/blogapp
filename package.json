@@ -12,5 +12,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server-plugin-landing-page-graphql-playground": "^4.0.0"
+  }
 }
