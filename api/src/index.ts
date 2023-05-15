@@ -45,8 +45,8 @@ app.use(
     contentSecurityPolicy: {
       useDefaults: true,
       directives: {
-        "default-src": ["'unsafe-inline'", "*"],
-        "script-src": ["'unsafe-inline'", "*"]
+        "default-src": ["'unsafe-inline'", "https://main--vermillion-douhua-6fbac7.netlify.app", "*"],
+        "script-src": ["'unsafe-inline'", "https://main--vermillion-douhua-6fbac7.netlify.app", "*"]
       }
     },
       crossOriginOpenerPolicy: false
@@ -64,7 +64,7 @@ await server.start();
 app.use(graphqlUploadExpress({ maxFileSize: 10_000_000, maxFiles: 1 }));
 app.use(
   "/graphql",
-  cors<cors.CorsRequest>({origin: ["*"]}),
+  cors<cors.CorsRequest>({origin: ["https://main--vermillion-douhua-6fbac7.netlify.app", "*"]}),
   bodyParser.json(),
   expressMiddleware(server, {
     context: setContext
