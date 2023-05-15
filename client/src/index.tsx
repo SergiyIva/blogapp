@@ -13,7 +13,7 @@ import { ThemeProvider } from "styled-components";
 import { baseTheme } from "./styles/theme";
 import "./styles/bootstrap.css";
 
-const uri = process.env.REACT_APP_URI + "/graphql";
+const uri = "https://blog-app-4yih.onrender.com" + "/graphql";
 const httpLink = createUploadLink({ uri });
 const authLink = setContext((_, { headers }) => {
   return {
