@@ -63,7 +63,7 @@ await server.start();
 app.use(graphqlUploadExpress({ maxFileSize: 10_000_000, maxFiles: 1 }));
 app.use(
   "/graphql",
-  cors<cors.CorsRequest>({origin: ["https://blog-app-client-aji9.onrender.com/"]}),
+  cors<cors.CorsRequest>({origin: ["*"]}),
   bodyParser.json(),
   expressMiddleware(server, {
     context: setContext
