@@ -64,7 +64,7 @@ await server.start();
 app.use(graphqlUploadExpress({ maxFileSize: 10_000_000, maxFiles: 1 }));
 app.use(
   "/graphql",
-  cors<cors.CorsRequest>({origin: ["https://main--vermillion-douhua-6fbac7.netlify.app", "*"]}),
+  cors<cors.CorsRequest>({origin: ["https://vermillion-douhua-6fbac7.netlify.app","https://main--vermillion-douhua-6fbac7.netlify.app", "*"]}),
   bodyParser.json(),
   expressMiddleware(server, {
     context: setContext
