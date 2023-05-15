@@ -45,10 +45,11 @@ app.use(
     contentSecurityPolicy: {
       useDefaults: true,
       directives: {
-        "default-src": ["'unsafe-inline'", "localhost", "*"],
-        "script-src": ["'unsafe-inline'", "localhost", "*"]
+        "default-src": ["'unsafe-inline'", "*"],
+        "script-src": ["'unsafe-inline'", "*"]
       }
-    }
+    },
+      crossOriginOpenerPolicy: false
   })
 );
 app.use(compression());
